@@ -2,12 +2,12 @@ import Banner from "../components/Banner/Banner";
 import CoinTable from "../components/CoinTable/CoinTable";
 import Navbar from "../components/Navbar/Navbar";
 
-function Home({ currency, setCurrency }) {
+function Home() {
   return (
     <>
-      <Navbar setCurrency={setCurrency} />
+      <Navbar />
       <Banner />
-      <CoinTable currency={currency} />
+      <CoinTable />
     </>
   );
 }
