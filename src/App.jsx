@@ -1,15 +1,8 @@
 import "./App.css";
-import { useState } from "react";
 import Home from "./pages/Home";
-import { CurrencyContext } from "./context/CurrencyCounter";
 
 function App() {
-  const [currency, setCurrency] = useState("usd");
-  return (
-    <CurrencyContext.Provider value={{ currency, setCurrency }}>
-      <Home />
-    </CurrencyContext.Provider>
-  );
+  return <Home />;
 }
 
 export default App;
