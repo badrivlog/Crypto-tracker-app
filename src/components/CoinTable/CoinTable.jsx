@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCoinData } from "../../services/fetchCoinData";
 import currencyStore from "../../state/store";
 import { useNavigate } from "react-router-dom";
+import PageLoader from "../PageLoader/PageLoader";
 
 function CoinTable() {
   const [page, setPage] = useState(1);
@@ -20,6 +21,10 @@ function CoinTable() {
     navigate(`/details/${id}`);
   }
 
+  if (isLoading) {
+    return <PageLoader />;
+  }
+
   return (
     <div className="my-5 flex flex-col items-center justify-center gap-5 w-[80vw] mx-auto">
       <div className="w-full bg-yellow-400 text-black flex py-4 px-2 font-semibold items-center justify-center">
@@ -29,7 +34,6 @@ function CoinTable() {
         <p className="basis-[20%]">Market Cap</p>
       </div>
       <ul className="flex flex-col w-[80vw] mx-auto">
-        {isLoading && <p>Loading...</p>}
         {data &&
           data.map((coin) => {
             return (
