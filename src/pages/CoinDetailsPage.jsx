@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchCoinDetails } from "../services/fetchCoinDetails";
 import currencyStore from "../state/store";
 import PageLoader from "../components/PageLoader/PageLoader";
+import CoinInfoContainer from "../components/CoinInfo/CoinInfoContainer";
 
 function CoinDetailsPage() {
   const { coinId } = useParams();
@@ -46,7 +47,9 @@ function CoinDetailsPage() {
           </div>
         </div>
       </div>
-      <div className="md:2/3 w-full p-6">Coin Information</div>
+      <div className="md:2/3 w-full p-6">
+        <CoinInfoContainer coinId={coinId} />
+      </div>
     </div>
   );
 }
